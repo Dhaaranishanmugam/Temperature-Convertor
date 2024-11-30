@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+        <title>
+            Temperature Convertor
+        </title>
+    </head>
+                        <!--Celsius to fahrenheit -->
+                        <!--fahrenheit to celsius-->
+                        <!--Celsius to kelvin-->
+                        <!--Kelvin to Celsius-->
+                        <!--Fahrenheit to kelvin-->
+                        <!--kelvin to fahrenheit-->
+
+    <style>
+
+        body
+        {
+                background-color: rgb(232, 232, 232);
+                font-family: 'Times New Roman', Times, serif;
+                
+        }
+        .container
+        {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            max-width: 2000px;
+            /*margin: 0 70px;*/
+            padding:20px;
+        }
+        .temp-convert
+        {
+            background-color: white;
+            box-sizing: border-box;
+            padding: 10px;
+            border-radius: 3px;
+        }
+        .temp-convert .input-group {
+            display: block;
+            align-items: center;
+        }
+        .temp-convert label {
+            flex: 1;
+            color: black;
+            
+        }
+        .temp-convert input[type="text"] {
+            flex: 5;
+            padding: 6px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            margin-left: 40px;
+        }
+        .temp-convert button
+        {
+            width: 35%;
+            padding: 10px;
+            border:2px solid rgb(96, 135, 224);
+            background-color:rgb(96, 135, 224);
+            color: white;
+            border-radius: 3px;
+            cursor:pointer;
+        }
+        .temp-convert button:hover
+        {
+            background-color: rgb(62, 103, 200);
+        }
+        h1{
+            text-align: center;
+        }
+        
+    </style>
+
+    <h1>Temperature Conversion</h1>
+    <body>
+        <div class="container">
+    <div class="temp-convert">
+        <center><h3>Celsius To Fahrenheit Conversion</h3></center>
+        <label for="cel">Celsius</label>
+        <input type="text" id="cel" placeholder="Enter Celsius">
+        <br><br>
+        <center><button type="submit" onclick="celsiustofahren()">Calculate</button></center>
+        <div id="celfahren"></div>
+        <br><br>
+    </div>
+        
+    <div class="temp-convert">
+        <center><h3>Fahrenheit To Celsius Conversion</h3></center>
+        <label for="fah">Fahrenheit</label>
+        <input type="text" id="fah" placeholder="Enter Fahrenheit">
+        <br><br>
+        <center><button type="submit" onclick="fahrentocel()">Calculate</button></center>
+        <div id="fahcel"></div>
+        <br><br>
+    </div>
+
+    <div class="temp-convert">
+        <center><h3>Celsius To Kelvin Conversion</h3></center>
+        <label for="celkel" >Celsius</label>
+        <input type="text" id="celkel" placeholder="Enter Celsius">
+        <br><br>
+        <center><button type="submit" onclick="celtokel()">Calculate</button></center>
+        <div id="celkelvin"></div>
+        <br><br>
+    </div>
+
+    <div class="temp-convert">
+        <center><h3>Kelvin To Celsius Conversion</h3></center>
+        <label for="kelvintocelsius">Kelvin</label>
+        <input type="text" id="kelvintocelsius" placeholder="Enter Kelvin">
+        <br><br>
+        <center><button type="submit" onclick="kelvtocel()">Calculate</button></center>
+        <div id="kelvtocels"></div>
+        <br><br>
+    </div>
+
+    <div class="temp-convert">
+        <center><h3>Fahrenhiet To Kelvin Conversion</h3></center>
+        <label for="fahtokel">Fahrenhiet</label>
+        <input type="text" id="fahtokel" placeholder="Enter Fahrenheit">
+        <br><br>
+        <center><button type="submit" onclick="fahrentokelvin()">Calculate</button></center>
+        <div id="fahrenheittokelvin"></div>
+        <br><br>
+    </div>
+        
+    <div class="temp-convert">
+        <center><h5>Kelvin To Fahrenhiet Conversion</h5></center>
+        <label for="keltofahren">Kelvin   </label>
+        <input type="text" id="keltofahren" placeholder="Enter Kelvin">
+        <br><br>
+        <center><button type="submit" onclick="kelvintofahren()">Calculate</button></center>
+        <div id="kelvintofahrenheit"></div>
+        <br><br>
+    </div>
+    </div>
+        <script>
+
+            function celsiustofahren()
+            {
+                const cel=Number(document.getElementById('cel').value)
+                result=(cel*1.8)
+                result+=32
+                celfahren.innerHTML="<b>Celsius to Fahrenheit : "+result+"&deg;F</b>"
+            }
+            function fahrentocel()
+            {
+                const fah=Number(document.getElementById("fah").value)
+                result=(fah-32)*(5/9)
+                result=result.toFixed(3)
+                fahcel.innerHTML="<b>Fahrenheit to Celsius : "+result+ "&deg;C</b>"
+            }
+            function celtokel()
+            {
+                const celkel=Number(document.getElementById("celkel").value)
+                result=(celkel+273.15)
+                celkelvin.innerHTML="<b>Celsius to Kelvin : "+result+ "K</b>"
+            }
+            function kelvtocel()
+            {
+                const kelvintocelsius=Number(document.getElementById('kelvintocelsius').value)
+                result=kelvintocelsius-273.15
+                kelvtocels.innerHTML="<b>Kelvin to Celsius : "+result+ "&degC</b>"
+            }
+            function fahrentokelvin()
+            {
+                const fahtokel=Number(document.getElementById('fahtokel').value)
+                result=(fahtokel-32)*(5/9)
+                result=result+273.15
+                result=Math.round(result * 1000) / 1000
+                fahrenheittokelvin.innerHTML="<b>Fahrenheit To Kelvin : "+result+ "K</b>"
+            }
+            function kelvintofahren()
+            {
+                const keltofahren=Number(document.getElementById('keltofahren').value)
+                result=(keltofahren-273.15)*(9/5)
+                result+=32
+                result=result.toFixed(2)
+                kelvintofahrenheit.innerHTML="<b>Kelvin To Fahrenheit : "+result+ "&deg;F</b>"
+
+            }
+
+        </script>
+
+    </body>
+</html>
